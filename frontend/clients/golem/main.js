@@ -15,8 +15,11 @@ function main() {
   // The default code here will load the fixtures you have defined.
   // Comment out the preload line and add something to refresh from the server
   // when you are ready to pull data from your server.
-  Golem.server.preload(Golem.FIXTURES) ;
+  // Golem.server.preload(Golem.FIXTURES) ;
+  Golem.server.listFor({recordType: Golem.Link});
 
+  Golem.Link.allRecords.refresh();
+  
   // TODO: refresh() any collections you have created to get their records.
   // ex: Golem.contacts.refresh() ;
 
@@ -34,4 +37,6 @@ function main() {
   var links = Golem.Link.collection();
   Golem.linksController.set('content', links);
   links.refresh();
+  
+  // Golem.linksController.set('content', Golem.Link.allRecords);
 } ;

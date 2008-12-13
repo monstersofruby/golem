@@ -5,8 +5,6 @@ class Link < Sequel::Model(:links)
     varchar :url
     varchar :description
     integer :votes, :default => 0
-    datetime :created_at
-    datetime :updated_at
   end
   
   has_many :comments

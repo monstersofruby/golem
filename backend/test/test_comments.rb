@@ -18,9 +18,11 @@ class TestComments < Test::Unit::TestCase
     end
     
     should "find all" do
-      result = [Comment.new(:author=>'1')]
+      comment = Comment.new(:author=>'1')
+      comment.stubs(:id).returns(1)
+      result = [comment]
       Comment.expects(:all).with(:link_id => 1).returns(result)
-      assert_equal("[{\"author\":\"1\"}]", @controller.index(1))
+      assert_equal("{\"records\":[{\"author\":\"1\"}],\"ids\":[1]}", @controller.list(1))
     end
   end
 end

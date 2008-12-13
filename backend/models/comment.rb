@@ -4,8 +4,6 @@ class Comment < Sequel::Model(:comments)
     varchar :author
     text :body
     integer :link_id
-    datetime :creted_at
-    datetime :updated_at
   end
   
   belongs_to :link

@@ -15,5 +15,13 @@ require('core');
 Golem.Link = SC.Record.extend(
 /** @scope Golem.Link.prototype */ {
 
-  properties: ['url', 'title', 'description']
+  // TODO: Add your own code here.
+  dataSource: Golem.server,
+  resourceURL: 'links',
+  properties: ['title', 'url', 'votes', 'description']
+  
+  
+
 }) ;
+
+Golem.Link.allRecords = Golem.Link.collection();

@@ -16,10 +16,12 @@ class TestLinks < Test::Unit::TestCase
       assert_equal("http://google.es", created_link.url)
     end
     
-    should "find all" do
-      result = [Link.new(:title=>'1')]
+    should "list links" do
+      link = Link.new(:title=>'1')
+      link.stubs(:id).returns(1)
+      result = [link]
       Link.expects(:all).returns(result)
-      assert_equal("[{\"title\":\"1\"}]", @controller.index)
+      assert_equal("{\"records\":[{\"title\":\"1\"}],\"ids\":[1]}", @controller.list)
     end
     
     should "shows link" do

@@ -9,6 +9,8 @@
 #
 # require 'sproutcore'
 
+proxy '/links', :to => 'localhost:3000'
+
 # This configuration section will be applied to all bundles used by your
 # application, even bundles that come from other gems.
 config :all do |c|
@@ -91,3 +93,4 @@ end
 #  c[:required] = [:sproutcore, :shared]
 # end
 #
+

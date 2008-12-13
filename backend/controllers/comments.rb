@@ -1,9 +1,16 @@
 class CommentsController < Ramaze::Controller
   map '/links/comments'
-  def index(link_id)
-    Comment.all(:link_id => link_id).collect { |comment| comment.values }.to_json
+  def list(link_id)
+    # Link.create(:title => 'google', :description => 'the browser', :url => 'http://google.es')
+    # Link.create(:title => 'yahoo', :description => 'the other', :url => 'http://yahoo.com')
+
+    @comments = Comment.all(:link_id => link_id)
+    result = {
+      :records => @comments.collect { |comment| comment.values },
+      :ids => @comments.collect { |comment| comment.id }
+    }.to_json
   end
-  
+
   def create(link_id)
     params = request.params
     @comment = Comment.new(params.merge(:link_id => link_id))

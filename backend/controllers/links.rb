@@ -1,7 +1,14 @@
 class LinksController < Ramaze::Controller
-  map '/links/links'
-  def index
-    Link.all.collect { |link| link.values }.to_json
+  map '/links'
+  def list
+    # Link.create(:title => 'google', :description => 'the browser', :url => 'http://google.es')
+    # Link.create(:title => 'yahoo', :description => 'the other', :url => 'http://yahoo.com')
+
+    @links = Link.all
+    result = {
+      :records => @links.collect { |link| link.values },
+      :ids => @links.collect { |link| link.id }
+    }.to_json
   end
   
   def create
@@ -24,16 +31,16 @@ end
 
 # Rules
 Restful_routes[%r!^/links/(\d+)$!] = {
-  :GET    => '/links/links/show/%d',
-  :PUT    => '/links/links/update/%d',
-  :DELETE => '/links/links/delete/%d'
+  :GET    => '/links/show/%d',
+  :PUT    => '/links/update/%d',
+  :DELETE => '/links/delete/%d'
 }
 
 Restful_routes[%r!^/links$!] = {
-  :POST   => '/links/links/create',
-  :GET    => '/links/links/index'
+  :POST   => '/links/create',
+  :GET    => '/links/list'
 }
 
 Restful_routes[%r!^/$!] = {
-  :GET    => '/links/links/index'
+  :GET    => '/links/list'
 }
