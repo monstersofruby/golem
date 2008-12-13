@@ -32,6 +32,10 @@ Golem.ListItemView = SC.View.extend(
       this.set('innerHTML', html);
   }.observes('content'),
   
+  _isSelectedObserver: function() {
+    this.setClassName('sel', this.get('isSelected')) ;
+  }.observes('isSelected'),
+  
   _renderRowHtml: function(content) {
       var html = [];
 

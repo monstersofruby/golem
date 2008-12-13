@@ -5,9 +5,7 @@
   <% view :sidebar do %>
 
       <%= list_view :record_list,
-      
-        :tag => :div,
-        :view => 'Golem.ListItemView',
+        :content_value_key => 'title',
         :bind => {
           :content => "Golem.linksController.arrangedObjects",
           :selection => "Golem.linksController.selection" 
