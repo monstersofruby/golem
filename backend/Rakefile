@@ -1,0 +1,30 @@
+require 'rake'
+require 'rake/testtask'
+
+namespace :start do
+  desc 'Starts app server http://localhost:3000'
+  task :server do
+    require 'script/server'
+  end
+
+  desc 'Starts debug server http://localhost:3000'
+  task :debug do
+    require 'ruby-debug'
+    require 'script/server'
+  end
+end
+
+namespace :db do
+  desc 'Re-create database. THIS DROPS EXISTING TABLES'
+  task :create do
+    require 'db/create'
+  end
+end
+
+Rake::TestTask.new do |t|
+  ENV['APP_ENV'] = 'test'
+  require 'db/create'
+  t.libs << "test"
+  t.test_files = FileList['test/test*.rb']
+  t.verbose = true
+end
