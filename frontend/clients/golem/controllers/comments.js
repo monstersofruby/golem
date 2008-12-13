@@ -16,6 +16,10 @@ require('core');
 Golem.commentsController = SC.ObjectController.create(
 /** @scope Golem.commentsController */ {
 
-  contentBinding: 'Golem.linksController.selection'
+  contentBinding: 'Golem.linksController.selection',
+
+	vote: function() {
+		this.set('votes', this.get('votes') + 1);
+	}
 
 }) ;

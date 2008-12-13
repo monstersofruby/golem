@@ -10,14 +10,19 @@
           :content => "Golem.linksController.arrangedObjects",
           :selection => "Golem.linksController.selection" 
         } %>
+        
   <% end %>
         
         
     <% view :detail do %>
-      <%= label_view :title, :bind => { :value => 'Golem.commentsController.title' } %>
+      <div>
+        <%= view :title, :view => "Golem.LinkView" %>
+      </div>
+      
       <%= label_view :url, :bind => { :value => 'Golem.commentsController.url' } %>
       <%= label_view :description, :bind => { :value => 'Golem.commentsController.description' } %>
       <%= label_view :votes, :bind => { :value => 'Golem.commentsController.votes' } %>
+      <%= button_view :toggle_button, :title => 'Vote', :action => 'Golem.commentsController.vote' %>
     <% end %>
 <% end %>
   </div>
