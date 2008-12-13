@@ -13,7 +13,7 @@ require('core');
   @version 0.1
   @static
 */
-Golem.linksController = SC.Object.create(
+Golem.linksController = SC.ArrayController.create(
 /** @scope Golem.linksController */ {
 
   // TODO: Add your own code here.
