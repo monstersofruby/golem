@@ -18,7 +18,11 @@ Golem.Link = SC.Record.extend(
   // TODO: Add your own code here.
   dataSource: Golem.server,
   resourceURL: 'links',
-  properties: ['title', 'url', 'votes', 'description']
+  properties: ['title', 'url', 'votes', 'description'],
+
+	link: function() {
+		return "<a href='" + this.url + "'>" + this.title + "</a>"
+	}
   
   
 
