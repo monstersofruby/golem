@@ -13,9 +13,9 @@ require('core');
   @version 0.1
   @static
 */
-Golem.commentsController = SC.Object.create(
+Golem.commentsController = SC.ObjectController.create(
 /** @scope Golem.commentsController */ {
 
-  // TODO: Add your own code here.
+  contentBinding: 'Golem.linksController.selection'
 
 }) ;

@@ -1,5 +1,8 @@
 <% content_for('body') do %>
 <div class="sc-welcome">
+<% split_view :workspace, :class => 'sc-app-workspace', :direction => :horizontal do %>
+
+  <% view :sidebar do %>
 
       <%= list_view :record_list,
         :content_value_key => 'url',
@@ -7,8 +10,16 @@
           :content => "Golem.linksController.arrangedObjects",
           :selection => "Golem.linksController.selection" 
         } %>
-
-
+  <% end %>
+        
+        
+    <% view :detail do %>
+      <%= label_view :title, :bind => { :value => 'Golem.commentsController.title' } %>
+      <%= label_view :url, :bind => { :value => 'Golem.commentsController.url' } %>
+      <%= label_view :description, :bind => { :value => 'Golem.commentsController.description' } %>
+      <%= label_view :votes, :bind => { :value => 'Golem.commentsController.votes' } %>
+    <% end %>
+<% end %>
   </div>
 </div>
 <% end %>
