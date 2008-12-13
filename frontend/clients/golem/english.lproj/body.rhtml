@@ -2,7 +2,9 @@
 <div class="sc-welcome">
 
       <%= list_view :record_list,
-        :content_value_key => 'url',
+      
+        :tag => :div,
+        :view => 'Golem.ListItemView',
         :bind => {
           :content => "Golem.linksController.arrangedObjects",
           :selection => "Golem.linksController.selection" 

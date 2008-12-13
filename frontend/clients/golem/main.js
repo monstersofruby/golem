@@ -31,8 +31,8 @@ function main() {
 
   // TODO: Set the content property on your primary controller
   // ex: Golem.contactsController.set('content',Golem.contacts);
-	var recordArray = Golem.Link.findAll();
-	Golem.linksController.set('content', recordArray);
-	// recordArray.refresh();
 
+  var links = Golem.Link.collection();
+  Golem.linksController.set('content', links);
+  links.refresh();
 } ;
