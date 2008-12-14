@@ -1,9 +1,6 @@
 class LinksController < Ramaze::Controller
   map '/links'
   def list
-    # Link.create(:title => 'google', :description => 'the browser', :url => 'http://google.es')
-    # Link.create(:title => 'yahoo', :description => 'the other', :url => 'http://yahoo.com')
-
     @links = Link.all
     result = {
       :records => @links.collect { |link| link.values },

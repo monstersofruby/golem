@@ -22,7 +22,17 @@ Golem.Link = SC.Record.extend(
 
 	link: function() {
 		return "<a href='" + this.url + "'>" + this.title + "</a>"
+	},
+	
+	fullTitle: function() {
+		return this.title + "("+this.votes+" votes)";
+	},
+	
+	commitChanges: function(){
+	   
+	    this.commit();
 	}
+	
   
   
 

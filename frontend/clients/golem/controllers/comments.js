@@ -20,6 +20,7 @@ Golem.commentsController = SC.ObjectController.create(
 
 	vote: function() {
 		this.set('votes', this.get('votes') + 1);
+		this.commitChanges();
 	}
 
 }) ;
